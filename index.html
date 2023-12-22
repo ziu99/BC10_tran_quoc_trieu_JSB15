@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS BUỔI 15</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* Mặc định ẩn ô nhập số kết nối */
+      #soKetNoi {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ? Câu 1 -->
+    <div class="container form-group">
+      <h1 class="mt-5">QUẢN LÝ TUYỂN SINH</h1>
+
+      <input
+        type="number"
+        id="diemChuan"
+        class="d-inline-block"
+        placeholder="Điểm Chuẩn"
+      />
+      <select id="chonKhuVuc">
+        <option value="0">--Chọn Khu Vực--</option>
+        <option value="2">A</option>
+        <option value="1">B</option>
+        <option value="0.5">C</option>
+      </select>
+      <select id="chonDoiTuong">
+        <option value="0">--Chọn Đối Tượng--</option>
+        <option value="2.5">1</option>
+        <option value="1.5">2</option>
+        <option value="1">3</option>
+      </select>
+      <br />
+      <br />
+      <input
+        type="number"
+        id="diemMon1"
+        class="d-inline-block"
+        placeholder="Điểm Môn Thứ 1"
+      />
+      <input
+        type="number"
+        id="diemMon2"
+        class="d-inline-block"
+        placeholder="Điểm Môn Thứ 2"
+      />
+      <input
+        type="number"
+        id="diemMon3"
+        class="d-inline-block"
+        placeholder="Điểm Môn Thứ 3"
+      />
+      <br /><br />
+      <button onclick="tinhDiemThi()" class="btn btn-success">Kết Quả</button>
+      <br /><br />
+      <h4 class="text-danger" id="ketQuaThi"></h4>
+    </div>
+    <br /><br /><br />
+    <hr />
+
+    <!-- ? câu 2 -->
+    <div class="container form-group">
+      <h1 class="mt-5">TÍNH TIỀN ĐIỆN</h1>
+
+      <input
+        type="text"
+        id="nhapHoTen"
+        class="d-inline-block"
+        placeholder="Nhập họ tên"
+      />
+      <input
+        type="number"
+        id="nhapKw"
+        class="d-inline-block"
+        placeholder="Nhập số Kw"
+      />
+
+      <br /><br />
+      <button onclick="tinhTienDien()" class="btn btn-success">
+        Tính Tiền Điện
+      </button>
+      <br /><br />
+      <h4 class="text-danger" id="ketQuaTienDien"></h4>
+    </div>
+    <br /><br /><br />
+    <hr />
+
+    <!-- ? câu 3 -->
+
+    <div class="container form-group">
+      <h1 class="mt-5">TÍNH THUẾ THU NHẬP CÁ NHÂN</h1>
+
+      <input
+        type="text"
+        id="hoTen"
+        class="d-inline-block"
+        placeholder="Nhập họ tên"
+      />
+      <input
+        type="number"
+        id="thuNhapNam"
+        class="d-inline-block"
+        placeholder="Tổng thu nhập năm"
+      />
+      <input
+        type="number"
+        id="soNguoiPhuThuoc"
+        class="d-inline-block"
+        placeholder="Số người phụ thuộc"
+      />
+
+      <br /><br />
+      <button onclick="tinhTienThue()" class="btn btn-success">
+        Tính Tiền Thuế
+      </button>
+      <br /><br />
+      <h4 class="text-danger" id="ketQuaThue"></h4>
+    </div>
+    <br /><br /><br />
+    <hr />
+
+    <!-- ? câu 4 -->
+
+    <div class="container form-group">
+      <h1 class="mt-5">TÍNH TIỀN CÁP</h1>
+
+      <select id="loaiKhachHang" onchange="hienAnSoKetNoi()">
+        <option value="0">Chọn loại khách hàng</option>
+        <option value="1">Nhà dân</option>
+        <option value="2">Doanh nghiệp</option>
+      </select>
+
+      <input
+        type="text"
+        id="maKh"
+        class="d-inline-block"
+        placeholder="Mã khách hàng"
+      />
+      <input
+        type="number"
+        id="soKenh"
+        class="d-inline-block"
+        placeholder="Số kênh cao cấp"
+      />
+
+      <br /><br />
+      <div id="demo">
+        <input type="number" id="soKetNoi" placeholder="Số kết nối" />
+      </div>
+      <br /><br />
+      <button onclick="tinhTienCap()" class="btn btn-success">
+        Tính Tiền Cáp
+      </button>
+      <br /><br />
+      <h4 class="text-danger" id="ketQuaTienCap"></h4>
+    </div>
+    <br /><br /><br /><br /><br />
+
+    <script src="./index.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
